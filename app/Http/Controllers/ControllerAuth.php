@@ -5,8 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cat;
 
-class ControllerCat extends Controller
+class ControllerAuth extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,9 +24,7 @@ class ControllerCat extends Controller
      */
     public function index()
     {
-        $cats = Cat::all();
-
-        return view('page.index', compact('cats'));
+        //
     }
 
     /**
@@ -26,7 +34,7 @@ class ControllerCat extends Controller
      */
     public function create()
     {
-        //
+        return view('page.create');
     }
 
     /**
@@ -37,7 +45,15 @@ class ControllerCat extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validateData = $request -> validate([
+        'name' => 'required',
+        'race' => 'required',
+        'cat_rfid' => 'required'
+      ]);
+      // dd($validateData);
+      Cat::create($validateData);
+
+      return redirect('/');
     }
 
     /**
@@ -48,7 +64,9 @@ class ControllerCat extends Controller
      */
     public function show($id)
     {
-      //
+      $cat = Cat::findOrFail($id);
+
+      return view('page.show', compact('cat'));
     }
 
     /**
@@ -59,7 +77,8 @@ class ControllerCat extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Cat::findOrFail($id);
+        return view('page.edit', compact('cat'));
     }
 
     /**
@@ -71,7 +90,15 @@ class ControllerCat extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $validateData = $request -> validate([
+        'name' => 'required',
+        'race' => 'required',
+        'cat_rfid' => 'required'
+      ]);
+      // dd($validateData);
+      Cat::whereId($id) -> update($validateData);
+
+      return redirect('/');
     }
 
     /**
@@ -82,6 +109,10 @@ class ControllerCat extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Cat::findOrFail($id);
+
+        $cat = $cat -> delete();
+
+        return redirect('/');
     }
 }

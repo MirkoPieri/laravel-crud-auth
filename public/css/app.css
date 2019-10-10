@@ -10644,3 +10644,127 @@ a.text-dark:focus {
   }
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  margin-right: 50px;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  background-color: lightgreen;
+}
+
+header h1 {
+  text-transform: uppercase;
+  font-size: 22pt;
+  padding: 20px 0;
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  background-color: lightgreen;
+}
+
+footer h2 {
+  text-transform: uppercase;
+  font-size: 18pt;
+  padding: 20px 0;
+}
+
+div.nav {
+  height: 100px;
+  background-color: orange;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.nav a {
+  font-size: 20pt;
+  text-decoration: none;
+  padding: 0 10px;
+  color: black;
+  font-weight: bold;
+}
+
+div.container {
+  height: 100%;
+}
+
+div.container h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div.box {
+  background-color: lightblue;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid orange;
+}
+
+div.box p {
+  font-size: 16pt;
+  padding-bottom: 10px;
+}
+
+div.box a {
+  margin-right: 30px;
+}
+
+div.create {
+  height: 80px;
+  padding: 50px 30px;
+  background-color: orange;
+}
+
+div.create a {
+  font-size: 20pt;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: 5px solid lightgreen;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+div.edit {
+  padding: 50px;
+}
+
+div.edit div.form-group {
+  padding: 20px 0;
+}
+
+div.edit div.form-group label {
+  display: block;
+  padding-right: 20px;
+  font-size: 18pt;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+div.edit div.form-group input {
+  width: 250px;
+  height: 30px;
+}
+
+div.edit button {
+  width: 100px;
+  height: 30px;
+  background-color: orange;
+  border: 2px solid red;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
